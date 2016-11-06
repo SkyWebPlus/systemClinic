@@ -11,10 +11,11 @@
 |
 */
 
+
 Route::get('/', function () {
-	return view('admin.dashboard'); 
+	return redirect('login');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/dashboard', 'HomeController@dashboard');
