@@ -6,6 +6,14 @@
             <form role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}
               <h1>Create Account</h1>
+              <div {{ $errors->has('name') ? ' has-error' : '' }}">
+                <input name="name" value="{{old('name')}}" type="text" class="form-control" placeholder="Name" required="" />
+                @if ($errors->has('name'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('name') }}</strong>
+                    </span>
+                @endif
+              </div>
               <div {{ $errors->has('username') ? ' has-error' : '' }}">
                 <input name="username" value="{{old('username')}}" type="text" class="form-control" placeholder="Username" required="" />
                 @if ($errors->has('name'))
